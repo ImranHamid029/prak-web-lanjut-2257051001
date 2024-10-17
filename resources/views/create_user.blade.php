@@ -108,9 +108,17 @@
                 <input type="text" name="npm" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="kelas">Kelas:</label>
-                <input type="text" name="kelas" class="form-control" required>
+            <div>
+                <label for="kelas_id">Kelas:</label>
+                <select name="kelas_id" id="kelas_id" required>
+                    <option value="" disabled selected>Pilih kelas</option>
+                    @foreach($kelas as $kelasItem)
+                        <option value="{{ $kelasItem->id }}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>{{ $kelasItem->nama_kelas }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('kelas_id'))
+                    <p class='text-danger'>{{ $errors->first('kelas_id') }}</p>
+                @endif
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
