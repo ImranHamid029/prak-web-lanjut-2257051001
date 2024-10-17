@@ -28,3 +28,5 @@ Route::post('/user/store', [UserController::class,
 'store'])->name('user.store');
 Route::get('/create_user', [UserController::class, 'create']);
 Route::post('/create_user', [UserController::class, 'store'])->name('user.store');
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
