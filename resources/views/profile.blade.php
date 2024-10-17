@@ -97,7 +97,7 @@ body {
             <div class="profile-info">
                 <p class="profile-name">Nama : <br>{{ $nama }}</p>
                 <p class="profile-class">NPM: <br>{{ $npm }}</p>
-                <p class="profile-npm">Kelas: <br>{{ $kelas }}</p>
+                <p class="profile-npm">Kelas: <br>{{$nama_kelas ?? 'Kelas Tidak ditemukan'}}</p>
             </div>
         </div>
     </div>
