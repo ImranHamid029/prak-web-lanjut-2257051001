@@ -2,6 +2,9 @@
 @section('content')
 <div class="container mt-5">
     <h2 class="text-center mb-4">Daftar Pengguna</h2>
+    <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Pengguna Baru</a>
+
+
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
@@ -19,7 +22,8 @@
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->npm }}</td>
                 <td>{{ $user->nama_kelas }}</td>
-                <td></td>
+                <td><a href="{{ route('users.show', $user->id)}}" class="btn btn-warning mb-3"></a></td>
+            
             </tr>
             @endforeach
         </tbody>
