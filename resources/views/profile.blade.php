@@ -92,12 +92,12 @@ body {
     <div class="profile-container">
         <div class="profile-card">
             <div class="profile-avatar">
-            <img src="{{ asset('assets/img/Profile_Hamid.png') }}" alt="Profile">
+            <img src="{{ $user->foto ? asset($user->foto) : asset('assets/upload/img/default-foto.jpg') }}" alt="Profile" >
             </div>
             <div class="profile-info">
-                <p class="profile-name">Nama : <br>{{ $nama }}</p>
-                <p class="profile-class">NPM: <br>{{ $npm }}</p>
-                <p class="profile-npm">Kelas: <br>{{$nama_kelas ?? 'Kelas Tidak ditemukan'}}</p>
+                <p class="profile-name">Nama : <br>{{ $user->nama }}</p>
+                <p class="profile-class">NPM: <br>{{ $user->npm }}</p>
+                <p class="profile-npm">Kelas: <br>{{ $user->nama_kelas ?? 'Kelas Tidak ditemukan'}}</p>
             </div>
         </div>
     </div>
