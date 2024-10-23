@@ -11,10 +11,13 @@
             <input type="text" id="nama" name="nama" class="form-control" required>
         </div>
 
+        
+
         <div class="form-group">
-            <label for="npm">NPM:</label>
-            <input type="text" id="npm" name="npm" class="form-control" required>
+            <label for="ipk">IPK :</label>
+            <input type="text" id="ipk" name="ipk" class="form-control" required>
         </div>
+
 
         <div class="form-group">
             <label for="kelas_id">Kelas:</label>

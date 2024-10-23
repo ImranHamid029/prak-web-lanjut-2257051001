@@ -58,7 +58,7 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'npm' => 'required|string|max:255',
+            'ipk' => 'required|numeric|min:0|max:4.00',
             'kelas_id' => 'required|integer',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -72,7 +72,7 @@ class UserController extends Controller
             }
             $this->userModel->create([
                 'nama' => $request->input('nama'),
-                'npm' => $request->input('npm'),
+                'ipk' => $request->input('ipk'),
                 'kelas_id' => $request->input('kelas_id'),
                 'foto' => $fotoPath, // Menyimpan path foto
                 ]);
@@ -83,9 +83,14 @@ class UserController extends Controller
         $data = [
             'title' => 'profile',
             'user' => $user,
+            'ipk' => $this->userModel->ipk,
         ];
         return view('profile',$data);
+
     }
+
+
+
 
     public function edit($id){
         $user = UserModel::findOrFail($id);
@@ -100,7 +105,7 @@ class UserController extends Controller
         $user = UserModel::findOrFail($id);
 
         $user->nama = $request->nama;
-        $user->npm = $request->npm;
+        $user->ipk = $request->ipk;
         $user->kelas_id = $request->kelas_id;
 
         if($request->hasFile('foto')){
